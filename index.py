@@ -19,7 +19,12 @@ def getNewsIt():
     soup = BeautifulSoup(req.text)
     titleDom = soup.find_all('h3', class_='Mb(5px)')
     strJson = '{"data":['
+    count = 0
     for title in titleDom:
+        if (count == 4):
+            break
+        else:
+          count += 1
         strJson += '{"title":"' + title.text + '",'
         contentReq = requests.request('GET', 'https://tw.news.yahoo.com/' + title.find('a')['href'],headers=headers)
         contentSoup = BeautifulSoup(contentReq.text)
