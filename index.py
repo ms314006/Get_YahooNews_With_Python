@@ -21,7 +21,7 @@ def getNewsIt():
     strJson = '{"data":['
     count = 0
     for title in titleDom:
-        if (count == 4):
+        if (count == 10):
             break
         else:
           count += 1
