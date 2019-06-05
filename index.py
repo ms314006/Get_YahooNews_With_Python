@@ -28,9 +28,6 @@ def getNewsIt():
         for content in contentDom:
             strJson += content.text
         strJson += '"},'
-        resp = make_response(strJson) 
-        resp.headers['Access-Control-Allow-Origin'] = '*'
-        return resp
     strJson = strJson[:-1] + ']}'
 
     resp = make_response(strJson) 
