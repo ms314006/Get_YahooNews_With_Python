@@ -19,6 +19,9 @@ def getNewsIt():
     soup = BeautifulSoup(req.text)
     titleDom = soup.find_all('h3', class_='Mb(5px)')
     strJson = '{"data":['
+    resp = make_response(strJson) 
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
     for title in titleDom:
         strJson += '{"title":"' + title.text + '",'
         contentReq = requests.request('GET', 'https://tw.news.yahoo.com/' + title.find('a')['href'],headers=headers)
