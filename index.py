@@ -24,7 +24,7 @@ def getNewsIt():
         if (count == 10):
             break
         else:
-          count += 1
+            count += 1
         strJson += '{"title":"' + title.text + '",'
         contentReq = requests.request('GET', 'https://tw.news.yahoo.com/' + title.find('a')['href'],headers=headers)
         contentSoup = BeautifulSoup(contentReq.text)
